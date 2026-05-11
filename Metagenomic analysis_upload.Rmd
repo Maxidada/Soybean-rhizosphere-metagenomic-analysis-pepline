@@ -11,6 +11,7 @@ thumbnails: false
 toc_depth: 3
 pkgdown:
   as_is: true
+
 ---
   
 We have 42 samples that represent the following: 
