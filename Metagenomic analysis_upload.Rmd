@@ -14,7 +14,7 @@ pkgdown:
 
 ---
   
-We have 42 samples that represent the following: 
+We have 36 samples that represent the following: 
 
 .WT_0uM_1	0uM	WT	Rep.1
 .WT_0uM_2	0uM	WT	Rep.2
@@ -34,9 +34,6 @@ We have 42 samples that represent the following:
 .WT_50uM_1	50uM	WT	Rep.1
 .WT_50uM_2	50uM	WT	Rep.2
 .WT_50uM_3	50uM	WT	Rep.3
-.WT_Ctl_1	Control	WT	Rep.1
-.WT_Ctl_2	Control	WT	Rep.2
-.WT_Ctl_3	Control	WT	Rep.3
 .phr1_2_0uM_1	0uM	phr1phr2	Rep.1
 .phr1_2_0uM_2	0uM	phr1phr2	Rep.2
 .phr1_2_0uM_3	0uM	phr1phr2	Rep.3
@@ -55,9 +52,7 @@ We have 42 samples that represent the following:
 .phr1_2_50uM_1	50uM	phr1phr2	Rep.1
 .phr1_2_50uM_2	50uM	phr1phr2	Rep.2
 .phr1_2_50uM_3	50uM	phr1phr2	Rep.3
-.phr1_2_Ctl_1	Control	phr1phr2	Rep.1
-.phr1_2_Ctl_2	Control	phr1phr2	Rep.2
-.phr1_2_Ctl_3	Control	phr1phr2	Rep.3
+
 
 
 
@@ -436,7 +431,6 @@ pcoa_df$Genotype <- factor(pcoa_df$Genotype)
 
 # Custom Treatment order for legend
 treatment_order <- c(
-  "Ctl",
   "Brady_0uM",
   "Brady_10uM",
   "Brady_20uM",
@@ -772,9 +766,9 @@ df_long$Genus <- factor(
 # Define Sample order
 ############################
 sample_order <- c(
-  "WT_Ctl", "WT_0uM", "WT_10uM", "WT_20uM", "WT_50uM",
+  "WT_0uM", "WT_10uM", "WT_20uM", "WT_50uM",
   "WT_100uM", "WT_200uM",
-  "phr1_2_Ctl", "phr1_2_0uM", "phr1_2_10uM", "phr1_2_20uM",
+  "phr1_2_0uM", "phr1_2_10uM", "phr1_2_20uM",
   "phr1_2_50uM", "phr1_2_100uM", "phr1_2_200uM"
 )
 
@@ -877,7 +871,6 @@ meta_raw <- read_excel(metadata_file, sheet = "Sheet1") %>%
 meta <- meta_raw %>%
   mutate(
     Treatment = case_when(
-      Treatment == "Ctl" ~ "Ctl",
       Treatment == "Brady_0uM"   ~ "0uM",
       Treatment == "Brady_10uM"  ~ "10uM",
       Treatment == "Brady_20uM"  ~ "20uM",
@@ -928,7 +921,7 @@ shannon_df <- shannon_df %>%
 shannon_df <- shannon_df %>%
   mutate(
     Treatment = factor(Treatment,
-                       levels = c("Ctl","0uM","10uM","20uM","50uM","100uM","200uM")),
+                       levels = c("0uM","10uM","20uM","50uM","100uM","200uM")),
     Genotype = factor(Genotype,
                       levels = c("WT","phr1_2"))
   )
@@ -1796,8 +1789,8 @@ output_pdf <- "/Data/to/path"
 # 2. Sample order
 # -------------------------------
 sample_order <- c(
-  "WT_Ctl","WT_0uM","WT_10uM","WT_20uM","WT_50uM","WT_100uM","WT_200uM",
-  "phr1_2_Ctl","phr1_2_0uM","phr1_2_10uM","phr1_2_20uM",
+  "WT_0uM","WT_10uM","WT_20uM","WT_50uM","WT_100uM","WT_200uM",
+  "phr1_2_0uM","phr1_2_10uM","phr1_2_20uM",
   "phr1_2_50uM","phr1_2_100uM","phr1_2_200uM"
 )
 
