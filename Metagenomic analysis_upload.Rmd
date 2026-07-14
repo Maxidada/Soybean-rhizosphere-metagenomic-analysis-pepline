@@ -139,7 +139,7 @@ OUT_DIR="/Data/to/path"
 NOHOST_DIR="${OUT_DIR}/nohost_reads"
 
 # Bowtie2 index PREFIX (NOT directory)
-BT2_DB="/Data/to/path"
+BT2_DB="/Data/to/path/Standard-16GB"
 
 mkdir -p "${OUT_DIR}" "${NOHOST_DIR}"
 
